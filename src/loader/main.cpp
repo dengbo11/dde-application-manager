@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #include <getopt.h>
 #include <grp.h>
 #include <pwd.h>
@@ -234,7 +238,7 @@ int main(int argc, char* argv[])
     }
 
     char socketPath[50];
-    sprintf(socketPath, "/run/user/%d/deepin-application-manager.socket", getuid());
+    sprintf(socketPath, "/run/user/%d/dde-application-manager.socket", getuid());
 
     // register client and run quitConnect
     Socket::Client client;

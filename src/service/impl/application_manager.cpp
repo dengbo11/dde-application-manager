@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #include "application_manager.h"
 
 #include <unistd.h>
@@ -32,7 +36,7 @@ ApplicationManagerPrivate::ApplicationManagerPrivate(ApplicationManager* parent)
     , section("AppName")
     , key("support")
 {
-    const QString socketPath{QString("/run/user/%1/deepin-application-manager.socket").arg(getuid())};
+    const QString socketPath{QString("/run/user/%1/dde-application-manager.socket").arg(getuid())};
     connect(&server, &Socket::Server::onReadyRead, this, &ApplicationManagerPrivate::recvClientData, Qt::QueuedConnection);
     server.listen(socketPath.toStdString());
 }
